@@ -3,12 +3,13 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 import './estilos/Login.css';
 import './estilos/Signup.css';
 import './estilos/Bloc.css';
-import appFirebase from './credenciales';
+import './estilos/Modal.css';
+import {appFirebase} from './credenciales';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 import { Login } from './componentes/Login';
 import Signup from './componentes/Signup';
-import { Bloc } from './componentes/Bloc';
+import {Bloc} from './componentes/Bloc';
 
 const auth = getAuth(appFirebase);
 

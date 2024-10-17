@@ -1,103 +1,144 @@
-.bloc-container {
-    display: flex;
-    height: 100vh;
-    background-color: #ccc;
-    height: 100vh;
-    overflow: hidden;
+/* src/estilos/Bloc.css */
 
-  }
-  
-  .bloc-sidebar {
-    width: 200px;
-    padding: 15px;
-    background-color: #e388e7;
-    height: 100vh;
-    flex-shrink: 0;
-  }
-  
-  .main-content {
-    flex-grow: 1;
-    padding: 20px;
-  }
-  
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .logo h1 {
-    font-size: 24px;
-    margin: 0;
-  }
-  
-  
-  .user-info {
-    display: flex;
-    align-items: right;
-    font-size: small;
-  }
-  
-  .user-info img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-left: 10px;
-  }
-  
-  .notes {
-    margin-top: 20px;
-  }
-  
-  .notes-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  
-  .note {
-    width: 200px;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    background-color: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  
-  .note-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .note-header h3 {
-    margin: 0;
-    font-size: 18px;
-  }
-  
-  .note-date {
-    font-size: 12px;
-    color: #888;
-  }
-  
-  .note p {
-    margin-top: 10px;
-    font-size: 14px;
-  }
-  
-  .add-note {
-    padding: 10px 20px;
-    margin-top: 20px;
-    background-color: #6c63ff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .add-note:hover {
-    background-color: #5b53d6;
-  }
-  
+.bloc-container {
+  display: flex;
+  height: 100vh;
+  background-color: #f5f5f5;
+  overflow: hidden; /* Evita el desplazamiento en el contenedor principal */
+}
+
+.bloc-sidebar {
+  width: 200px; /* Ancho fijo para la barra lateral */
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  flex-shrink: 0; /* Evita que la barra lateral se reduzca */
+}
+
+.bloc-sidebar h3 {
+  margin-top: 0;
+}
+
+.bloc-sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.bloc-sidebar li {
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.bloc-sidebar .add-note {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #ffcc80;
+  border: none;
+  cursor: pointer;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto; /* Permite el desplazamiento vertical en el contenido principal */
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.logo h1 {
+  margin: 0;
+}
+
+.user-info p {
+  margin: 0;
+}
+
+.notes {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.notes-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.note {
+  width: calc(33.333% - 20px);
+  max-width: 300px; /* Ancho máximo de la nota */
+  max-height: 200px; /* Alto máximo de la nota */
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Oculta el contenido que excede el tamaño */
+  text-overflow: ellipsis; /* Añade puntos suspensivos al final del contenido */
+}
+
+.note-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.note-header h3 {
+  margin: 0;
+  font-size: 18px;
+  white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+  overflow: hidden; /* Oculta el contenido que excede el tamaño */
+  text-overflow: ellipsis; /* Añade puntos suspensivos al final del contenido */
+}
+
+.note-actions button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+.note p {
+  margin-top: 10px;
+  font-size: 14px;
+  white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+  overflow: hidden; /* Oculta el contenido que excede el tamaño */
+  text-overflow: ellipsis; /* Añade puntos suspensivos al final del contenido */
+}
+
+.add-note {
+  padding: 10px 20px;
+  margin-top: 20px;
+  background-color: #6c63ff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add-note:hover {
+  background-color: #5b53d6;
+}
+
+textarea {
+  width: 100%;
+  height: 100px;
+  margin-top: 10px;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
