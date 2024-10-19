@@ -213,3 +213,5 @@ export const Bloc = ({ usuario }) => {
     </div>
   );
 };
+
+export default Bloc;

@@ -6,8 +6,6 @@ import './estilos/Bloc.css';
 import './estilos/Modal.css';
 import { appFirebase } from './credenciales';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
-
-
 import { Login } from './componentes/Login';
 import Signup from './componentes/Signup';
 import { Bloc } from './componentes/Bloc';

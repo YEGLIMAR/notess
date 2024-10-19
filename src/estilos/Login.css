@@ -116,3 +116,15 @@ p a {
 p a:hover {
   text-decoration: underline;
 }
+
+.logo-container {
+  text-align: center; /* Centrar el logo en el contenedor */
+  margin-bottom: 20px; /* Agrega espacio entre el logo y el resto del contenido */
+}
+
+.logo {
+  width: 200px; /* Ajusta el tamaño del logo según lo que necesites */
+  height: auto; /* Mantén las proporciones del logo */
+  
+}
+

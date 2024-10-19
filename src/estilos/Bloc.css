@@ -173,7 +173,10 @@ input[type="text"] {
 }
 
 .logo {
-  width: 100px; /* Ajusta el tamaño del logo según lo que necesites */
+  width: 200px; /* Ajusta el tamaño del logo según lo que necesites */
   height: auto; /* Mantén las proporciones del logo */
+  
 }
+
+
 

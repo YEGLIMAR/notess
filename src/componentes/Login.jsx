@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { appFirebase} from '../credenciales';
 import '../estilos/Login.css';
+import logo from '../assets/logito.png';
 
 export const Login = () => {
   const [email, setEmail] = useState('');
@@ -33,6 +34,8 @@ export const Login = () => {
   return (
     <div className='login-container'>
       <div className='left-section'>
+        <div className='logo-container'></div>
+        <img src={logo} alt="Logo" className= "logo"/>
         <h2>La mejor aplicación para tus</h2>
         <h1>NOTAS</h1>
       </div>
