@@ -4,12 +4,14 @@ import './estilos/Login.css';
 import './estilos/Signup.css';
 import './estilos/Bloc.css';
 import './estilos/Modal.css';
-import {appFirebase} from './credenciales';
+import { appFirebase } from './credenciales';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
+
 
 import { Login } from './componentes/Login';
 import Signup from './componentes/Signup';
-import {Bloc} from './componentes/Bloc';
+import { Bloc } from './componentes/Bloc';
+
 
 const auth = getAuth(appFirebase);
 
@@ -17,9 +19,9 @@ function App() {
   const [usuario, setUsuario] = useState(null);
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (usuario) => {
-      if (usuario) {
-        setUsuario(usuario);
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUsuario(user);
       } else {
         setUsuario(null);
       }

@@ -1,27 +1,28 @@
 /* src/estilos/Bloc.css */
-
 .bloc-container {
   display: flex;
   height: 100vh;
-  background-color: #f5f5f5;
+  background: linear-gradient(to bottom, #fff7ad, #ffa9f9); /* Degradado de colores pastel */
+
   overflow: hidden; /* Evita el desplazamiento en el contenedor principal */
 }
 
 .bloc-sidebar {
   width: 200px; /* Ancho fijo para la barra lateral */
-  background-color: #333;
-  color: #fff;
+  background-color: #ebd4e1;
+  color: #080808;
   padding: 20px;
   flex-shrink: 0; /* Evita que la barra lateral se reduzca */
 }
 
-.bloc-sidebar h3 {
-  margin-top: 0;
+.bloc-sidebar h4 {
+  margin-top: 50px;
 }
 
 .bloc-sidebar ul {
   list-style: none;
   padding: 0;
+  margin: 20px 0;
 }
 
 .bloc-sidebar li {
@@ -32,10 +33,18 @@
 .bloc-sidebar .add-note {
   margin-top: 20px;
   padding: 10px;
-  background-color: #ffcc80;
-  border: none;
+  background-color: #a623c0;
   cursor: pointer;
+  color: rgb(235, 223, 223);
+  border: none;
+  border-radius: 4px;
+  font-size: 16px; 
 }
+
+.add-note:hover {
+  background-color: #635089; /* Color del botón al pasar el mouse */
+}
+
 
 .main-content {
   flex: 1;
@@ -47,7 +56,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
 }
 
 .logo h1 {
@@ -56,6 +65,8 @@
 
 .user-info p {
   margin: 0;
+  font-size: 16px;
+  color: #de1b66;
 }
 
 .notes {
@@ -75,7 +86,7 @@
   max-width: 300px; /* Ancho máximo de la nota */
   max-height: 200px; /* Alto máximo de la nota */
   padding: 20px;
-  border-radius: 5px;
+  border-radius: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   overflow: hidden; /* Oculta el contenido que excede el tamaño */
   text-overflow: ellipsis; /* Añade puntos suspensivos al final del contenido */
@@ -99,9 +110,19 @@
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 16px;
-  margin-left: 10px;
+  padding: 5px;
 }
+
+.note-actions button svg {
+  width: 24px;
+  height: 24px;
+  fill: #06080b; /* Color del icono */
+}
+
+.note-actions button:hover svg {
+  fill: #bd558b; /* Cambia el color del icono al pasar el ratón (opcional) */
+}
+
 
 .note p {
   margin-top: 10px;
@@ -111,19 +132,6 @@
   text-overflow: ellipsis; /* Añade puntos suspensivos al final del contenido */
 }
 
-.add-note {
-  padding: 10px 20px;
-  margin-top: 20px;
-  background-color: #6c63ff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.add-note:hover {
-  background-color: #5b53d6;
-}
 
 textarea {
   width: 100%;
@@ -142,3 +150,30 @@ input[type="text"] {
   border: 1px solid #ccc;
   border-radius: 4px;
 }
+
+.bloc-sidebar li {
+  margin: 10px 0;
+  cursor: pointer;
+  display: flex;  /* Permite que el icono y el texto se alineen en línea */
+  align-items: center; /* Centra verticalmente el icono y el texto */
+  font-size: 16px; /* Tamaño de la fuente del texto */
+  color: #312b2b; /* Color del texto */
+}
+
+.bloc-sidebar li svg {
+  margin-right: 10px; /* Espaciado entre el icono y el texto */
+  fill: #2d012a; /* Cambia el color del icono a blanco (puedes ajustar este valor) */
+  width: 24px; /* Ancho del icono */
+  height: 24px; /* Alto del icono */
+}
+
+.logo-container {
+  text-align: center; /* Centrar el logo en el contenedor */
+  margin-bottom: 20px; /* Agrega espacio entre el logo y el resto del contenido */
+}
+
+.logo {
+  width: 100px; /* Ajusta el tamaño del logo según lo que necesites */
+  height: auto; /* Mantén las proporciones del logo */
+}
+

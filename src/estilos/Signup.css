@@ -1,113 +1,97 @@
 body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background-color: #f0f0f0;
-  }
-  
-  /* Contenedor principal */
-  .signup-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: linear-gradient(135deg, #FFF7AD, #FFA9F9);
-  }
-  
-  /* Contenedor del formulario */
-  .signup-form-container {
-    background-color: #d2daf6;
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
-    width: 400px;
-    text-align: center;
-  }
-  
-  /* Título del formulario */
-  .signup-form-container h2 {
-    font-size: 2rem;
-    font-weight: 600;
-    margin-bottom: 20px;
-    color: #333;
-    letter-spacing: 0px;
-  }
-  
-  /* Grupos de input */
-  .input-group {
-    margin-bottom: 20px;
-    text-align: left;
-  }
-  
-  /* Etiquetas */
-  .input-group label {
-    font-size: 1rem;
-    font-weight: 500;
-    color: #333;
-    margin-bottom: 8px;
-    display: block;
-  }
-  
-  /* Campos de entrada */
-  .input-group input {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-size: 1rem;
-    background-color: #f0f0f0;
-    transition: background-color 0.3s ease;
-  }
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f0f0f0;
+}
 
-  .password-hint{
-    font-size: 0.8rem;
-    color: #0b0a0a;
-    margin-top: 5px;
-  }
-  
-  /* Efecto cuando el input está enfocado */
-  .input-group input:focus {
-    outline: none;
-    background-color: #fff;
-    border: 1px solid #715aff;
-  }
-  
-  /* Botón de registro */
-  button[type="submit"] {
-    width: 100%;
-    padding: 12px;
-    background-color: #715aff;
-    border: none;
-    color: #fff;
-    font-size: 1rem;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 10px;
-  }
-  
-  /* Efecto hover en el botón */
-  button[type="submit"]:hover {
-    background-color: #5a4fd0;
-  }
-  
-  /* Estilo del texto del pie */
-  .signup-form p {
-    margin-top: 20px;
-    color: #070809;
-    font-size: 0.9rem;
-  }
-  
-  /* Enlace para iniciar sesión */
-  .signup-form p a {
-    color: #715aff;
-    text-decoration: none;
-  }
-  
-  .signup-form p a:hover {
-    text-decoration: underline;
-  }
-  
-  .success{
-    color: green;
-    font-size: 0.9rem;
-  }
+.signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #FFF7AD, #FFA9F9);
+}
+
+/* Contenedor del formulario */
+.signup-form-container {
+  background-color: #d2daf6;
+  padding: 60px;
+  border-radius: 20px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  text-align: center;
+}
+
+/* Título del formulario */
+.signup-form-container h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Grupos de input */
+.input-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+/* Etiquetas */
+.input-group label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 8px;
+  display: block;
+}
+
+/* Campos de entrada */
+.input-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #f0f0f0;
+  transition: background-color 0.3s ease;
+}
+
+/* Efecto cuando el input está enfocado */
+.input-group input:focus {
+  outline: none;
+  background-color: #fff;
+  border: 1px solid #715aff;
+}
+
+/* Botón de registro */
+button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background-color: #715aff;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+button[type="submit"]:hover {
+  background-color: #5a4fd0;
+}
+
+.signup-form p {
+  margin-top: 20px;
+  color: #070809;
+  font-size: 0.9rem;
+}
+
+.signup-form p a {
+  color: #715aff;
+  text-decoration: none;
+}
+
+.signup-form p a:hover {
+  text-decoration: underline;
+}
