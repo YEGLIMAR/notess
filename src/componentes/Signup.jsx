@@ -31,7 +31,7 @@ const Signup = () => {
 
   return (
     <div className='signup-container'>
-      <div className='signup-form-container'> {/* Asegúrate de tener esta clase */}
+      <div className='signup-form-container'> 
         <h2>Registro</h2>
         {error && <p className='error'>{error}</p>}
         {success && <p className='success'>{success}</p>}
