@@ -12,6 +12,9 @@ export const Bloc = ({ usuario }) => {
   const [currentNote, setCurrentNote] = useState(null);
   const [showTrash, setShowTrash] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [viewMode, setViewMode] = useState('list');
+  const [showViewOptions, setShowViewOptions] = useState(false);
+
   const navigate = useNavigate();
   const auth = getAuth();
   const colors = ['#ffcc80', '#80deea', '#a5d6a7', '#ffab91', '#ce93d8', '#fff59d'];
@@ -65,6 +68,11 @@ export const Bloc = ({ usuario }) => {
     guardarNotasEnLocalStorage(nuevasNotas);  // Guardar las notas actualizadas en localStorage
   };
 
+  const toggleViewOptions = () => {
+    setShowViewOptions(!showViewOptions);
+  };
+  
+
   const openModal = (note) => {
     setCurrentNote(note);
     setShowModal(true);
@@ -95,6 +103,12 @@ export const Bloc = ({ usuario }) => {
       content,
     });
   };
+
+  const handleViewChange = (mode) => {
+    setViewMode(mode); // Cambia la vista
+    setShowViewOptions(false); // Cierra el menú
+  };
+  
 
   const deleteNote = (id) => {
     const noteToDelete = notas.find((nota) => nota.id === id);
@@ -158,14 +172,28 @@ export const Bloc = ({ usuario }) => {
       <div className='main-content'>
         <header className='header'>
           <div className='logo'>
+
             <h1>My Notes</h1>
           </div>
-          <div className='user-info'>
-            {usuario ? <p>Bienvenido/a, {usuario.email}</p> : null}
-          </div>
+          <div className='view-dropdown'>
+            <button onClick={toggleViewOptions}> View v</button>
+
+            {showViewOptions && (
+              <div className='view-options'>
+                <button onClick={() => setViewMode('list')}>Vista Lista</button>
+                <button onClick={() => setViewMode('grid')}>Vista Tarjetas</button>
+                <button onClick={() => setViewMode('mini')}>Vista Miniaturas</button>
+              
+              </div>
+              )}
+            </div>
+              
+              <div className='user-info'>
+                  {usuario ? <p>Bienvenido/a, {usuario.email}</p> : null}
+                </div>
         </header>
 
-        <div className='notes'>
+        <div className= {`notes ${viewMode}`}>
           <div className='notes-grid'>
             {showTrash ? (
               notasEliminadas.map((nota) => (
@@ -178,7 +206,11 @@ export const Bloc = ({ usuario }) => {
               ))
             ) : (
               notas.map((nota) => (
-                <div key={nota.id} className='note' style={{ backgroundColor: nota.color }} onDoubleClick={() => openModal(nota)}>
+                <div key={nota.id} 
+                     className='note' 
+                     style={{ backgroundColor: nota.color }} 
+                     onDoubleClick={() => openModal(nota, viewMode === 'full')}
+                     >
                   
                   <div className="note-header">
                     <h3>{nota.title}</h3>

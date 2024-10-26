@@ -178,5 +178,63 @@ input[type="text"] {
   
 }
 
+/* Vista en Lista */
+.notes.list .note {
+  width: 100%;
+  max-width: none;
+  height: auto;
+}
+
+/* Vista de Tarjetas Grandes */
+.notes.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.notes.grid .note {
+  width: calc(33.333% - 20px);
+  height: 200px;
+}
+
+/* Vista Miniaturas */
+.notes.mini .note {
+  width: 100px;
+  height: 100px;
+  font-size: 12px;
+  overflow: hidden;
+}
+
+
+.view-dropdown {
+  position: relative;
+}
+
+.view-options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: rgb(233, 230, 233);
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.view-options button {
+  display: block;
+  padding: 10px 20px;
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.view-options button:hover {
+  background-color: #e7b6f7;
+}
+
+
 
 
