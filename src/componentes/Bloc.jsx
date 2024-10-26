@@ -1,3 +1,68 @@
+/**
+ * Bloc component that manages and displays user notes.
+ *
+ * @component
+ * @param {Object} props - Component properties.
+ * @param {Object} props.usuario - The authenticated user object.
+ * @returns {JSX.Element|null} The rendered component.
+ *
+ * @example
+ * <Bloc usuario={usuario} />
+ *
+ * @typedef {Object} Note
+ * @property {number} id - The unique identifier of the note.
+ * @property {string} title - The title of the note.
+ * @property {string} content - The content of the note.
+ * @property {string} color - The background color of the note.
+ *
+ * @function guardarNotasEnLocalStorage
+ * @description Saves the current notes to localStorage for the authenticated user.
+ * @param {Note[]} notasActuales - The current notes to be saved.
+ *
+ * @function cargarNotasDesdeLocalStorage
+ * @description Loads the notes from localStorage for the authenticated user.
+ *
+ * @function addNotes
+ * @description Adds a new note to the list of notes.
+ *
+ * @function toggleViewOptions
+ * @description Toggles the visibility of the view options menu.
+ *
+ * @function openModal
+ * @description Opens the modal to edit a note.
+ * @param {Note} note - The note to be edited.
+ *
+ * @function closeModal
+ * @description Closes the modal and clears the current note.
+ *
+ * @function saveNote
+ * @description Saves the current note being edited.
+ *
+ * @function handleTitleChange
+ * @description Handles the change of the note title.
+ * @param {string} title - The new title of the note.
+ *
+ * @function handleContentChange
+ * @description Handles the change of the note content.
+ * @param {string} content - The new content of the note.
+ *
+ * @function handleViewChange
+ * @description Changes the view mode of the notes.
+ * @param {string} mode - The new view mode ('list', 'grid', 'mini').
+ *
+ * @function deleteNote
+ * @description Deletes a note by its ID.
+ * @param {number} id - The ID of the note to be deleted.
+ *
+ * @function handleLogout
+ * @description Logs out the current user.
+ *
+ * @function handleShowTrash
+ * @description Shows the deleted notes (trash).
+ *
+ * @function handleShowNotes
+ * @description Shows the active notes.
+ */
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getAuth, signOut, onAuthStateChanged } from 'firebase/auth';
