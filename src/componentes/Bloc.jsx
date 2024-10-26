@@ -245,9 +245,9 @@ export const Bloc = ({ usuario }) => {
 
             {showViewOptions && (
               <div className='view-options'>
-                <button onClick={() => setViewMode('list')}>Vista Lista</button>
-                <button onClick={() => setViewMode('grid')}>Vista Tarjetas</button>
-                <button onClick={() => setViewMode('mini')}>Vista Miniaturas</button>
+                <button onClick={() => setViewMode('list')}> Lista</button>
+                <button onClick={() => setViewMode('grid')}> Tarjetas</button>
+                <button onClick={() => setViewMode('mini')}> Miniaturas</button>
               
               </div>
               )}
