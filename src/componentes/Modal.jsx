@@ -1,30 +1,51 @@
-// src/componentes/Modal.jsx
 import React from 'react';
-import '../estilos/Modal.css';
+import { Dialog, DialogTitle, DialogContent, TextField, DialogActions, Button } from '@mui/material';
 
-const Modal = ({ show, onClose, note, onSave, onChangeTitle, onChangeContent }) => {
-  if (!show) {
-    return null;
-  }
-
+const ModalComponent = ({ open, onClose, note, onSave, onChangeTitle, onChangeContent }) => {
   return (
-    <div className="modal-overlay">
-      <div className="modal-content" style={{ backgroundColor: note.color }}>
-        <h2>Edit Note</h2>
-        <input
-          type="text"
+    <Dialog 
+      open={open} 
+      onClose={onClose} 
+      fullWidth 
+      maxWidth="sm"
+      sx={{
+        '& .MuiDialog-paper': { borderRadius: '20px', padding: '15px' }
+      }}
+    >
+      <DialogTitle sx={{ fontSize: '1.5rem', fontWeight: 'bold', textAlign: 'center' }}>
+        Edit Note
+      </DialogTitle>
+      
+      <DialogContent sx={{ paddingTop: '50px' }}>
+        <TextField
+          label="Title"
+          fullWidth
+          margin="dense"
           value={note.title}
           onChange={(e) => onChangeTitle(e.target.value)}
+          variant="standard"
+          sx={{ marginBottom: '15px' }}
         />
-        <textarea
+        <TextField
+          label="Content"
+          fullWidth
+          multiline
+          rows={5}
+          margin="dense"
           value={note.content}
           onChange={(e) => onChangeContent(e.target.value)}
+          variant="outlined"
+          sx={{ marginBottom: '10px' }}
         />
-        <button onClick={onSave}>Save</button>
-        <button onClick={onClose}>Close</button>
-      </div>
-    </div>
+      </DialogContent>
+
+      <DialogActions sx={{ padding: '10px 24px', justifyContent: 'space-between' }}>
+        <Button onClick={onClose} sx={{ color: "white", fontWeight: 'normal', backgroundColor:'orange' }}>CANCEL</Button>
+        <Button onClick={onSave} sx={{  color: 'white', fontWeight: 'normal', backgroundColor:'purple' }}>SAVE</Button>
+      </DialogActions>
+    </Dialog>
   );
 };
 
-export default Modal;
+export default ModalComponent;
+

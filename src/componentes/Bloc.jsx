@@ -1,74 +1,15 @@
-/**
- * Bloc component that manages and displays user notes.
- *
- * @component
- * @param {Object} props - Component properties.
- * @param {Object} props.usuario - The authenticated user object.
- * @returns {JSX.Element|null} The rendered component.
- *
- * @example
- * <Bloc usuario={usuario} />
- *
- * @typedef {Object} Note
- * @property {number} id - The unique identifier of the note.
- * @property {string} title - The title of the note.
- * @property {string} content - The content of the note.
- * @property {string} color - The background color of the note.
- *
- * @function guardarNotasEnLocalStorage
- * @description Saves the current notes to localStorage for the authenticated user.
- * @param {Note[]} notasActuales - The current notes to be saved.
- *
- * @function cargarNotasDesdeLocalStorage
- * @description Loads the notes from localStorage for the authenticated user.
- *
- * @function addNotes
- * @description Adds a new note to the list of notes.
- *
- * @function toggleViewOptions
- * @description Toggles the visibility of the view options menu.
- *
- * @function openModal
- * @description Opens the modal to edit a note.
- * @param {Note} note - The note to be edited.
- *
- * @function closeModal
- * @description Closes the modal and clears the current note.
- *
- * @function saveNote
- * @description Saves the current note being edited.
- *
- * @function handleTitleChange
- * @description Handles the change of the note title.
- * @param {string} title - The new title of the note.
- *
- * @function handleContentChange
- * @description Handles the change of the note content.
- * @param {string} content - The new content of the note.
- *
- * @function handleViewChange
- * @description Changes the view mode of the notes.
- * @param {string} mode - The new view mode ('list', 'grid', 'mini').
- *
- * @function deleteNote
- * @description Deletes a note by its ID.
- * @param {number} id - The ID of the note to be deleted.
- *
- * @function handleLogout
- * @description Logs out the current user.
- *
- * @function handleShowTrash
- * @description Shows the deleted notes (trash).
- *
- * @function handleShowNotes
- * @description Shows the active notes.
- */
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getAuth, signOut, onAuthStateChanged } from 'firebase/auth';
 import '../estilos/Bloc.css';
 import Modal from './Modal';
 import logo from '../assets/logito.png';
+import { Button, IconButton, Typography, AppBar, Toolbar, Container, Card, CardContent, CardActions, Dialog, DialogTitle, DialogContent, DialogActions, TextField, Grid2 } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
+import AddIcon from '@mui/icons-material/Add';
+import LogoutIcon from '@mui/icons-material/Logout';
+import MenuIcon from '@mui/icons-material/Menu';
+
 
 export const Bloc = ({ usuario }) => {
   const [notas, setNotas] = useState([]);
@@ -231,8 +172,9 @@ export const Bloc = ({ usuario }) => {
             Log out
           </li>
         </ul>
-        <button className='add-note' onClick={addNotes}>+ Add Notes</button>
-      </div>
+        <Button variant="contained" color= "inherit" startIcon={<AddIcon />} onClick={addNotes}> Add Note
+        </Button>
+        </div>
 
       <div className='main-content'>
         <header className='header'>
@@ -252,6 +194,7 @@ export const Bloc = ({ usuario }) => {
               </div>
               )}
             </div>
+    
               
               <div className='user-info'>
                   {usuario ? <p>Bienvenido/a, {usuario.email}</p> : null}
@@ -259,56 +202,53 @@ export const Bloc = ({ usuario }) => {
         </header>
 
         <div className= {`notes ${viewMode}`}>
-          <div className='notes-grid'>
-            {showTrash ? (
-              notasEliminadas.map((nota) => (
-                <div key={nota.id} className='note' style={{ backgroundColor: nota.color }}>
-                  <div className="note-header">
-                    <h3>{nota.title}</h3>
-                  </div>
-                  <p>{nota.content}</p>
-                </div>
-              ))
-            ) : (
-              notas.map((nota) => (
-                <div key={nota.id} 
-                     className='note' 
-                     style={{ backgroundColor: nota.color }} 
-                     onDoubleClick={() => openModal(nota, viewMode === 'full')}
-                     >
-                  
-                  <div className="note-header">
-                    <h3>{nota.title}</h3>
-                    <div className="note-actions">
-                    <button onClick={() => deleteNote(nota.id)}>
-                      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368">
-                      <path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/>
-                      </svg>
-                      </button>
-
-
-                    </div>
-                  </div>
-                  <p>{nota.content}</p>
-                </div>
-              ))
-            )}
-          </div>
+      
+      <Grid2 container spacing={2}>
+        {showTrash ? (
+          notasEliminadas.map((nota) => (
+            <Grid2 item xs={15} sm={3} md={4} key={nota.id}>
+              <Card style={{ backgroundColor: nota.color }}>
+                <CardContent>
+                  <Typography variant="h6">{nota.title}</Typography>
+                  <Typography variant="body2">{nota.content}</Typography>
+                </CardContent>
+              </Card>
+            </Grid2>
+          ))
+        ) : (
+          notas.map((nota) => (
+            <Grid2 item xs={12} sm={6} md={4} key={nota.id}>
+              <Card style={{ backgroundColor: nota.color }}>
+                <CardContent>
+                  <Typography variant="h6">{nota.title}</Typography>
+                  <Typography variant="body2">{nota.content}</Typography>
+                </CardContent>
+                <CardActions>
+                  <IconButton onClick={() => deleteNote(nota.id)} color="secondary">
+                    <DeleteIcon />
+                  </IconButton>
+                </CardActions>
+              </Card>
+            </Grid2>
+          ))
+        )}
+          </Grid2>
         </div>
       </div>
 
       {currentNote && (
         <Modal
-          show={showModal}
+          open={showModal}
           onClose={closeModal}
           note={currentNote}
           onSave={saveNote}
           onChangeTitle={handleTitleChange}
           onChangeContent={handleContentChange}
         />
-      )}
+      )}  
     </div>
   );
-};
+}
+
 
 export default Bloc;

@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 import './estilos/Login.css';
 import './estilos/Signup.css';
 import './estilos/Bloc.css';
-import './estilos/Modal.css';
+//import './estilos/Modal.css';
 import { appFirebase } from './credenciales';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { Login } from './componentes/Login';
